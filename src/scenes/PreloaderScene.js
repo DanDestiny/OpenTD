@@ -11,8 +11,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
     preload(){
         //time event
-        // TODO - update Delayed call time
-        this.timedEvent = this.time.delayedCall(1, this.ready, [], this);
+        this.timedEvent = this.time.delayedCall(2000, this.ready, [], this);
         this.createPreholder();
         this.loadAssets();
     }
@@ -102,9 +101,6 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('button1', '/assets/ui/blue_button02.png');
         this.load.image('button2', '/assets/ui/blue_button03.png');
 
-        //Placeholder
-        this.load.image('logo2', '/assets/logo.png');
-
         // Tilemap
         this.load.tilemapTiledJSON('level1', '/assets/level/level1.json');
         this.load.spritesheet('terrainTiles_default', '/assets/level/terrainTiles_default.png', {frameWidth: 64, frameHeight: 64});
@@ -114,7 +110,7 @@ export default class PreloaderScene extends Phaser.Scene {
     ready(){
         this.readyCount++;
         if (this.readyCount === 2){
-            this.scene.start('Game');
+            this.scene.start('Title');
         }
     }
 

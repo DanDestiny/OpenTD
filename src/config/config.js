@@ -3,12 +3,13 @@ export default {
     parent: 'phaser-example',
     width: 640,
     height: 512,
+    autoResize: true,
     pixelArt: true,
     roundPixels: true,
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            debug: false,
             gravity: { y: 0 }
         }
     }
