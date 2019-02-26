@@ -10,6 +10,14 @@ export default class PreloaderScene extends Phaser.Scene {
     }
 
     preload(){
+        //time event
+        // TODO - update Delayed call time
+        this.timedEvent = this.time.delayedCall(1, this.ready, [], this);
+        this.createPreholder();
+        this.loadAssets();
+    }
+
+    createPreholder(){
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
 
@@ -81,9 +89,9 @@ export default class PreloaderScene extends Phaser.Scene {
             this.ready();
         }.bind(this));
 
-        //time event
-        this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    }
 
+    loadAssets(){
         //Load assets needed in game
         this.load.image('bullet', '/assets/level/bulletDark2_outline.png');
         this.load.image('tower', '/assets/level/tank_bigRed.png');
@@ -107,7 +115,6 @@ export default class PreloaderScene extends Phaser.Scene {
         this.readyCount++;
         if (this.readyCount === 2){
             this.scene.start('Game');
-            console.log('start');
         }
     }
 
