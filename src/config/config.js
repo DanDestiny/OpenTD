@@ -3,6 +3,10 @@ export default {
     parent: 'phaser-example',
     width: 640,
     height: 512,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     autoResize: true,
     pixelArt: true,
     roundPixels: true,
