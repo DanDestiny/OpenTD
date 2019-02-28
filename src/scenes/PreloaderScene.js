@@ -102,8 +102,10 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('button2', '/assets/ui/blue_button03.png');
 
         // Tilemap
-        this.load.tilemapTiledJSON('level1', '/assets/level/level1.json');
-        this.load.spritesheet('terrainTiles_default', '/assets/level/terrainTiles_default.png', {frameWidth: 64, frameHeight: 64});
+        this.load.tilemapTiledJSON('area1_level1', '/assets/level/Data/Area1_Level1.json');
+        //this.load.tilemapTiledJSON('testLevel1', '/assets/level/TestMap1.json');
+        this.load.spritesheet('Area1_TileSet', '/assets/level/Tileset/Area1_TileSet.png', {frameWidth: 64, frameHeight: 64, margin: 32, spacing: 32})
+        //this.load.spritesheet('terrainTiles_default', '/assets/level/terrainTiles_default.png', {frameWidth: 64, frameHeight: 64});
 
     }
 

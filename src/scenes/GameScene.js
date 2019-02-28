@@ -74,6 +74,7 @@ export default class GameScene extends Phaser.Scene {
         this.updateEnemies(levelConfig.initial.numOfEnemies + this.round * levelConfig.incremental.numOfEnemies);
         this.events.emit('startRound', this.round);
     }
+    
     updateEnemies(numberOfEnemies){
         this.remainingEnemies += numberOfEnemies;
         this.events.emit('updateEnemies', this.remainingEnemies);
@@ -150,11 +151,13 @@ export default class GameScene extends Phaser.Scene {
 
     createMap(){
         // create our map
-        this.bgMap = this.make.tilemap({ key: 'level1'});
+        this.bgMap = this.make.tilemap({ key: 'area1_level1'});
         // add tile set
-        this.tiles = this.bgMap.addTilesetImage('terrainTiles_default');
+        this.tiles = this.bgMap.addTilesetImage('Area1_TileSet');
         // background layer
-        this.backgroundLayer = this.bgMap.createStaticLayer('Background', this.tiles, 0, 0);
+        this.backgroundLayer = this.bgMap.createStaticLayer('Base0', this.tiles, 0, 0);
+        this.backgroundLayer = this.bgMap.createStaticLayer('Base1', this.tiles, 0, 0);
+        this.backgroundLayer = this.bgMap.createStaticLayer('Buildings', this.tiles, 0, 0);
         // add our base
         this.add.image(480, 480, 'base');
     }
