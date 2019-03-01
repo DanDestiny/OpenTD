@@ -46,6 +46,10 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update(time, delta){
+        // Debug Show Mouse Position
+        console.log('X: ' + this.game.input.mousePointer.x);
+        console.log('Y: ' + this.game.input.mousePointer.y);
+
         // Check time for next enemy
         if (time > this.nextEnemy && this.roundStarted && this.enemies.countActive(true) < this.remainingEnemies){
             var enemy = this.enemies.getFirstDead();
@@ -139,14 +143,18 @@ export default class GameScene extends Phaser.Scene {
         this.graphics = this.add.graphics();
 
         // Path
-        this.path = this.add.path(96, -32);
-        this.path.lineTo(96, 164);
-        this.path.lineTo(480, 164);
-        this.path.lineTo(480, 544);
+        this.path = this.add.path(160, -32);
+        this.path.lineTo(160, 480);
+        this.path.lineTo(612, 480);
+        this.path.lineTo(612, 100);
+        this.path.lineTo(735, 100);
+        this.path.lineTo(735, 420);
+        this.path.lineTo(860, 420);
+        this.path.lineTo(860, 340);
 
         //DEBUG Visualize the path
-        //this.graphics.lineStyle(3, 0xffffff, 1);
-        //this.path.draw(this.graphics);
+        this.graphics.lineStyle(3, 0xffffff, 1);
+        this.path.draw(this.graphics);
     }
 
     createMap(){
@@ -159,7 +167,7 @@ export default class GameScene extends Phaser.Scene {
         this.backgroundLayer = this.bgMap.createStaticLayer('Base1', this.tiles, 0, 0);
         this.backgroundLayer = this.bgMap.createStaticLayer('Buildings', this.tiles, 0, 0);
         // add our base
-        this.add.image(480, 480, 'base');
+        //this.add.image(480, 480, 'base');
     }
 
     getEnemy(x, y, dist){
