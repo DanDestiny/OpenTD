@@ -23,6 +23,7 @@ export default class Enemy extends Phaser.GameObjects.Image {
 
         // Check for rotation
         if (this.follower.vec.y > this.y && this.follower.vec.y !== this.y) this.angle = 0;
+        if (this.follower.vec.y < this.y && this.follower.vec.y !== this.y) this.angle = 180;
         if (this.follower.vec.x > this.x && this.follower.vec.x !== this.x) this.angle = -90;
 
         // Set the new position
